@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 # Project exclude paths
 /dek-env/
+/manage.py
