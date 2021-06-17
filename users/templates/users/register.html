@@ -33,12 +33,19 @@
     <link href="{% static 'css/signin.css' %}" rel="stylesheet">
 </head>
 <body class="text-center">
+{% block content %}
     <main class="form-signin">
+        {% if messages %}
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        {% endif %}
         <form action="" method="POST">
             {% csrf_token %}
+<!--            {{ form.as_p }}-->
 <!-- TODO Replace Log in text with an icon -->
 <!--            <img class="mb-4" src="{% static 'images/sign_up.jpg' %}" alt="" width="144" height="114">-->
-            <h1 class="h3 mb-3 fw-normal">Register</h1>
+<!--            <h1 class="h3 mb-3 fw-normal">Register</h1>-->
 
             <div class="form-floating">
                 <input type="text" class="form-control" id="username" placeholder="username" name="username">
@@ -76,5 +83,6 @@
             <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
         </form>
     </main>
+{% endblock %}
 </body>
 </html>

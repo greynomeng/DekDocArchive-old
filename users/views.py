@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
@@ -16,7 +16,8 @@ def login_page(request):
         if user is not None:
             login(request, user)
             print('LOGIN SUCCESS.')
-            return redirect('docs:home')
+            # return redirect('docs:home')
+            return redirect('docs:index')
         else:
             messages.info(request, 'Username or password is incorrect!')
 
@@ -28,14 +29,17 @@ def register_page(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account created for: "' + username + '"')
-            print('>>> FORM SAVED!')
-            return redirect('login')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('docs:home')
     else:
         form = CreateUserForm()
+    return render(request, 'users/register.html', {'form': form})
 
-    context = {'form': form}
-    print('>>> FORM NOT SAVED!')
-    return render(request, 'users/register.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('docs:home')

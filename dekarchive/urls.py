@@ -22,12 +22,10 @@ from users import views
 
 urlpatterns = [
     path('', include('docs.urls')),
-
-    path('login/', views.login_page, name='login'),
-    path('register/', views.register_page, name='register'),
-
     path('admin/', admin.site.urls),
-
+    path('register/', views.register_page, name='register'),
+    path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
