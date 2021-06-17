@@ -33,6 +33,7 @@ def register_page(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
+            messages.success(request, 'Registration success. You are logged in as: ' + username)
             login(request, user)
             return redirect('docs:home')
     else:
