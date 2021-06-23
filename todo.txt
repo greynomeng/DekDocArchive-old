@@ -1,0 +1,17 @@
+Implement list view of documents
+----------------------------------------------
+
+==============================================
+Manually slugify documents.
+DONE
+----------------------------------------------
+Should be yyyymmdd-categoryslug-titleslug
+eg.
+19540925-letter-personal-zeegers-nel-dekker
+
+derived from
+date: 1954-09-25
+category: Letter - Personal
+title: Letter - Zeegers to Nel Dekker
+==============================================
+

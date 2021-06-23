@@ -7,5 +7,5 @@ app_name = 'docs'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('index/', views.index, name='index'),
+    path('index/', views.IndexView.as_view(), name='index'),
 ]

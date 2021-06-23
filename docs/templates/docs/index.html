@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
+
 <h2>Doc Index</h2>
+
+{% for doc in object_list %}
+<div>
+    <h3>{{ doc.title }} | {{ doc.summary }}</h3>
+    <h4>{{ doc.doc_date }}</h4>
+    <br/>
+    {{ doc.slug }}
+    <br/>
+    {{ doc.dutch_text|safe }}
+    <hr>
+</div>
+
+{% endfor %}
+
 {% endblock %}
