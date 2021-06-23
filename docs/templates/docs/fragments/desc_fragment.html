@@ -1,0 +1,15 @@
+<!-- Description -->
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <!-- Body -->
+            <div class="card-body">
+                <h5 class="card-title">{{ doc.title }}</h5>
+            </div>
+            <!-- Footer -->
+            <div class="card-footer text-muted">
+                {{ doc.category.name }} Dated: {{ doc.doc_date }} - Status: {{ doc.get_status_display }} - Updated: {{ doc.updated }}
+            </div>
+        </div>
+    </div>
+</div>

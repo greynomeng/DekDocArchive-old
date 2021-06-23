@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!--<link rel="stylesheet" href="{% static 'css/card_list.css' %}">-->
+<!-- Description -->
+{% include 'docs/fragments/desc_fragment.html' %}
+
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 20px;">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                role="tab" aria-controls="home" aria-selected="true">Translation
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                role="tab" aria-controls="profile" aria-selected="false">Notes
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                role="tab" aria-controls="contact" aria-selected="false">Images
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content" id="myTabContent" style="background-color: #ffffff;">
+    <!-- Content -->
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        {% include 'docs/fragments/text_fragment.html' %}
+    </div>
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        {% include 'docs/fragments/notes_fragment.html' %}
+    </div>
+
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        Images
+    </div>
+</div>
+
+{% endblock %}

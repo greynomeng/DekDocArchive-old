@@ -1,0 +1,29 @@
+        <!-- Text and Translation -->
+        <div class="row">
+            <!-- Dutch text -->
+            <div class="col">
+                <div class="card">
+                    <!-- Header -->
+                    <div class="card-header">
+                        Dutch Text
+                    </div>
+                    <!-- Body -->
+                    <div class="card-body">
+                        <p class="card-text">{{ doc.dutch_text|safe}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- English Translation -->
+            <div class="col">
+                <div class="card">
+                    <!-- Header -->
+                    <div class="card-header">
+                        English Translation
+                    </div>
+                    <!-- Body -->
+                    <div class="card-body">
+                        <p class="card-text">{{ doc.english_text|safe}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
