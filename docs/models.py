@@ -19,6 +19,7 @@ class Document(models.Model):
     JOB_STATUS = (
         ('c', 'Completed'),
         ('p', 'Pending'),
+        ('n', 'See Notes'),
     )
 
     title = models.CharField(max_length=500, blank=False, null=False)

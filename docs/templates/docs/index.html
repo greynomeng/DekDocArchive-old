@@ -1,22 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
 
+<div class="row">
 
-<h2>Doc Index</h2>
+    {% for doc in object_list %}
+  <div class="col-sm-6">
+    <div class="card">
+        <div class="card-header">
+            {{ doc.category.name }}, dated: {{ doc.doc_date }}
+        </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ doc.title }}</h5>
+        <p class="card-text">{{ doc.summary }}</p>
+        <a href="#" class="btn btn-primary">Read more</a>
+      </div>
+    </div>
+  </div>
 
-{% for doc in object_list %}
-<div>
-    <h3>{{ doc.title }} | {{ doc.summary }}</h3>
-    <h4>{{ doc.doc_date }}</h4>
-    <br/>
-    {{ doc.slug }}
-    <br/>
-    {{ doc.dutch_text|safe }}
-    <hr>
+   {% endfor %}
+
 </div>
 
-{% endfor %}
-
 {% endblock %}
+
+
+
