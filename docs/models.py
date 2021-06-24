@@ -2,6 +2,8 @@ from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.text import slugify
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFill
 
 
 class Category(models.Model):
@@ -42,3 +44,15 @@ class Document(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(str(self.doc_date) + ' ' + str(self.category) + ' ' + str(self.title))
         super(Document, self).save(*args, **kwargs)
+
+
+class DocImage(models.Model):
+    caption = models.CharField(max_length=255, null=True, blank=True)
+    image = models.ImageField(upload_to='images/documents')
+    image_thumbnail = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(210, 300)],
+        format='JPEG'
+    )
+    doc = models.ForeignKey(Document, on_delete=models.CASCADE)
+

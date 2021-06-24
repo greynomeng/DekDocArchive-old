@@ -1,7 +1,19 @@
 from django.contrib import admin
 from django.utils.text import slugify
 
-from docs.models import Document, Category
+from docs.models import Document, Category, DocImage
+
+
+# class DocImageAdmin(admin.ModelAdmin):
+#     model = DocImage
+#
+#
+# admin.site.register(DocImage, DocImageAdmin)
+
+
+class DocImageInLine(admin.TabularInline):
+    model = DocImage
+    extra = 4
 
 
 class DocumentAdmin(admin.ModelAdmin):
@@ -12,6 +24,9 @@ class DocumentAdmin(admin.ModelAdmin):
         ('doc_date',),
         ('author', 'category', 'status',),
         'dutch_text', 'english_text', 'notes',
+    ]
+    inlines = [
+        DocImageInLine
     ]
     readonly_fields = ['slug', 'updated']
 

@@ -1,10 +1,16 @@
 <!-- Notes -->
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-text">
-                {{ doc.notes|safe }}
+<div class="container" style="background-color: #f2f2f2; margin-top: 10px;">
+    {% if doc.notes %}
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-text">
+                        {{ doc.notes|safe }}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    {% else %}
+        <p>There are no notes for this document.</p>
+    {% endif %}
 </div>

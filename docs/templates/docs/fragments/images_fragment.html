@@ -1,0 +1,16 @@
+<div class="container" style="background-color: #f2f2f2; margin-top: 10px;">
+    {% if doc.docimage_set.all %}
+        <div class="row" style="width: 500px;">
+            {% for img in doc.docimage_set.all %}
+                <div class="col">
+                    <figure class="figure">
+                        <img src="{{ img.image_thumbnail.url }}" class="figure-img img-fluid rounded" alt="...">
+                        <figcaption class="figure-caption">{{ img.caption }}</figcaption>
+                    </figure>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>There are no images for this document.</p>
+    {% endif %}
+</div>

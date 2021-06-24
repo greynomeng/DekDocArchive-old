@@ -2,6 +2,10 @@
 Image handling
 ---------------------------------------------------------------------
 Includes, embedded images (see Steenkool Magazine document).
+1.  Add image to model
+2.  Upload images using admin, with pi deksite app as a guide.
+3.  Thumbnail images for card with a link to see full size image.
+4.  How to use embedded images (ckeditor?)
 =====================================================================
 Pagination of list view
 DONE

@@ -8,34 +8,39 @@
 
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 20px;">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
-                role="tab" aria-controls="home" aria-selected="true">Translation
+        <button class="nav-link active" id="trans-tab" data-bs-toggle="tab" data-bs-target="#trans" type="button"
+                role="tab" aria-controls="trans" aria-selected="true">Translation
         </button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                role="tab" aria-controls="profile" aria-selected="false">Notes
+        <button class="nav-link" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button"
+                role="tab" aria-controls="notes" aria-selected="false">Notes
         </button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
-                role="tab" aria-controls="contact" aria-selected="false">Images
+        <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images" type="button"
+                role="tab" aria-controls="images" aria-selected="false">Images
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="back-tab" data-bs-toggle="tab" data-bs-target="#back" type="button"
+                role="tab" aria-controls="back" aria-selected="false"><a href="{% url 'docs:index' %}">Back</a>
         </button>
     </li>
 </ul>
 
 <div class="tab-content" id="myTabContent" style="background-color: #ffffff;">
     <!-- Content -->
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="tab-pane fade show active" id="trans" role="tabpanel" aria-labelledby="trans-tab">
         {% include 'docs/fragments/text_fragment.html' %}
     </div>
 
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="tab-pane fade" id="notes" role="tabpanel" aria-labelledby="notes-tab">
         {% include 'docs/fragments/notes_fragment.html' %}
     </div>
 
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        Images
+    <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
+        {% include 'docs/fragments/images_fragment.html' %}
     </div>
 </div>
 
