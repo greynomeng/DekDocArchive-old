@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ docimage.doc.title }}</h5>
+    <p class="card-text">{{ docimage.caption }}</p>
+      <p class="card-link"><small class="text-muted"><a href="javascript:history.go(-1)">Back</a></small></p>
+  </div>
+  <img src="{{ docimage.image.url }}" class="card-img-bottom" alt="...">
+</div>
+{% endblock %}

@@ -4,7 +4,9 @@
             {% for img in doc.docimage_set.all %}
                 <div class="col">
                     <figure class="figure">
-                        <img src="{{ img.image_thumbnail.url }}" class="figure-img img-fluid rounded" alt="...">
+                        <a href="{% url 'docs:image-detail' img.id %}">
+                            <img src="{{ img.image_thumbnail.url }}" class="figure-img img-fluid rounded" alt="...">
+                        </a>
                         <figcaption class="figure-caption">{{ img.caption }}</figcaption>
                     </figure>
                 </div>

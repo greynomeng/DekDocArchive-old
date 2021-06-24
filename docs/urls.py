@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('index/', views.IndexView.as_view(), name='index'),
     path('doc/<int:pk>/', views.DocumentDetailView.as_view(), name='doc-detail'),
+    path('image/<int:pk>', views.image_detail, name='image-detail'),
 ]

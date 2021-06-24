@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from docs.models import Document
+from docs.models import Document, DocImage
 
 
 def home(request):
@@ -29,3 +29,8 @@ class DocumentDetailView(DetailView):
         doc = get_object_or_404(Document, id=self.kwargs['pk'])
         context['doc'] = doc
         return context
+
+
+def image_detail(request, pk):
+    docimage = DocImage.objects.get(id=pk)
+    return render(request, 'docs/image_detail.html', {'docimage': docimage})
