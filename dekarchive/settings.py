@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'gn-ubuntu']
 
+INTERNAL_IPS = ['localhost', 'gn-ubuntu']
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
 
     'ckeditor',
     'imagekit',
+    'debug_toolbar',
 
     'docs.apps.DocsConfig',
     'users.apps.UsersConfig',
@@ -51,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'dekarchive.urls'
@@ -77,18 +81,18 @@ WSGI_APPLICATION = 'dekarchive.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'dekarchive',
-    #     'USER': 'deksiteuser',
-    #     'PASSWORD': 'deksitepwd',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dekarchive',
+        'USER': 'deksiteuser',
+        'PASSWORD': 'deksitepwd',
+        'HOST': 'localhost',
+        'PORT': '',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 # Password validation

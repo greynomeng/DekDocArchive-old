@@ -1,10 +1,14 @@
 =====================================================================
+Setup in postgresql database.
+---------------------------------------------------------------------
+
+=====================================================================
 Image handling
 ---------------------------------------------------------------------
 Includes, embedded images (see Steenkool Magazine document).
 1.  Add image to model - DONE
 2.  Upload images using admin, with pi deksite app as a guide. - DONE
-3.  Thumbnail images for card with a link to see full size image.
+3.  Thumbnail images link to see full size image. - DONE
 4.  How to use embedded images (ckeditor?)
 =====================================================================
 Pagination of list view

@@ -31,7 +31,7 @@ class Document(models.Model):
     english_text = RichTextField(blank=True, null=True)
     notes = RichTextField(blank=True, null=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
-    slug = models.SlugField(null=True, blank=True)
+    slug = models.SlugField(max_length=500, null=True, blank=True)
     status = models.CharField(max_length=1, choices=JOB_STATUS, blank=False, default='p', help_text='Status')
     updated = models.DateField(auto_now=True, verbose_name='Updated:')
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)

@@ -31,6 +31,13 @@ class DocumentDetailView(DetailView):
         return context
 
 
-def image_detail(request, pk):
-    docimage = DocImage.objects.get(id=pk)
-    return render(request, 'docs/image_detail.html', {'docimage': docimage})
+class ImageDetailView(DetailView):
+    model = DocImage
+    template_name = 'docs/image_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ImageDetailView, self).get_context_data(**kwargs)
+        if 'pk' in self.kwargs:
+            context['docimage'] = get_object_or_404(DocImage, id=self.kwargs['pk'])
+
+        return context
