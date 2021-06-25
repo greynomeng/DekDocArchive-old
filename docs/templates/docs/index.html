@@ -15,10 +15,21 @@
                 </div>
                 <!-- Body -->
                 <div class="card-body">
-                    <h5 class="card-title">{{ doc.title }}</h5>
+                    <h5 class="card-title"><a href="{% url 'docs:doc-detail' doc.pk %}">{{ doc.title }}</a></h5>
                     <p class="card-text">{{ doc.summary }}</p>
-                    <a href="{% url 'docs:doc-detail' doc.pk %}" class="btn btn-primary">Read more</a>
+<!--                    <a href="{% url 'docs:doc-detail' doc.pk %}" class="btn btn-primary">Read more</a>-->
                 </div>
+                <!-- Tags -->
+                {% if doc.tags %}
+                    <div class="card-footer text-muted">
+                        Tags:
+                        {% for tag in doc.tags.all %}
+                            <button type="submit" class="btn btn-outline-info" onclick="location.href='#'">
+                                {{ tag }}
+                            </button>
+                        {% endfor %}
+                    </div>
+               {% endif %}
                 <!-- Footer -->
                 <div class="card-footer text-muted">
                     Status: {{ doc.get_status_display }} - Updated: {{ doc.updated }}

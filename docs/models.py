@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from pilkit.processors import ResizeToFill
+from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
@@ -36,7 +37,7 @@ class Document(models.Model):
     updated = models.DateField(auto_now=True, verbose_name='Updated:')
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
-    # tags =
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title

@@ -17,18 +17,21 @@ class DocImageInLine(admin.TabularInline):
 
 
 class DocumentAdmin(admin.ModelAdmin):
-    list_display = ('title', 'summary', 'doc_date', 'updated', 'author', 'category', 'status',)
-
-    fields = [
-        ('title', 'summary',),
-        ('doc_date',),
-        ('author', 'category', 'status',),
-        'dutch_text', 'english_text', 'notes',
-    ]
+    # list_display = ('title', 'summary', 'doc_date', 'updated', 'author', 'category', 'status', 'tag_list',)
+    fieldsets = (
+        ('Header', {
+            'fields': (
+                ('title', 'summary'),
+                ('doc_date', 'author'),
+                ('category', 'status', 'tags'),)
+        }),
+        ('Translations', {
+            'fields': (('dutch_text', 'english_text'), 'notes',)
+        }),
+    )
     inlines = [
         DocImageInLine
     ]
-    readonly_fields = ['slug', 'updated']
 
 
 admin.site.register(Document, DocumentAdmin)

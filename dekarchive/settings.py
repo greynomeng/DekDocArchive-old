@@ -40,10 +40,13 @@ INSTALLED_APPS = [
     'ckeditor',
     'imagekit',
     'debug_toolbar',
+    'taggit',
 
     'docs.apps.DocsConfig',
     'users.apps.UsersConfig',
 ]
+
+TAGGIT_CASE_INSENSITIVE = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
