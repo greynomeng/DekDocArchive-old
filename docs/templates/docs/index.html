@@ -4,7 +4,17 @@
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/card_list.css' %}">
-
+<h2 style="margin-top: 10px;">
+    {% if status == 'c' %}
+        Completed translations.
+    {% elif status == 'p' %}
+        Pending translations.
+    {% elif status == 'n' %}
+        Translations with notes.
+    {% else %}
+        All translations.
+    {% endif %}
+</h2>
 <div class="row">
     {% for doc in object_list %}
         <div class="col-sm-6">
