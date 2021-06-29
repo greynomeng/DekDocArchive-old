@@ -25,8 +25,15 @@ class IndexView(ListView):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         return context
 
-    def get_queryset(self, *args, **kwargs):
-        queryset = super(IndexView, self).get_queryset(*args, **kwargs)
+    def get_queryset(self, **kwargs):
+        queryset = super(IndexView, self).get_queryset(**kwargs)
+        # if self.kwargs.get('status', None) == 'c':
+        #     return queryset.filter(status='c')
+
+        selection = self.kwargs.get('status', None)
+        if selection:
+            return queryset.filter(status=selection)
+
         return queryset
 
 

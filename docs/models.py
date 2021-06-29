@@ -1,8 +1,9 @@
+from datetime import datetime
+
 from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import pre_save
-from django.urls import reverse, reverse_lazy
 from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from pilkit.processors import ResizeToFill
@@ -36,6 +37,7 @@ class Document(models.Model):
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     slug = models.SlugField(max_length=500, null=True, blank=True, unique=True)
     status = models.CharField(max_length=1, choices=JOB_STATUS, blank=False, default='p', help_text='Status')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Created:')
     updated = models.DateTimeField(auto_now=True, verbose_name='Updated:')
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
