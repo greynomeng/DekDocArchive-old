@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'gn-ubuntu']
 
-INTERNAL_IPS = ['localhost', 'gn-ubuntu']
+INTERNAL_IPS = ['127.0.0.1', 'localhost', 'gn-ubuntu']
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,10 +41,13 @@ INSTALLED_APPS = [
     'imagekit',
     'debug_toolbar',
     'taggit',
+    'crispy_forms',
 
     'docs.apps.DocsConfig',
     'users.apps.UsersConfig',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TAGGIT_CASE_INSENSITIVE = True
 
@@ -84,18 +87,18 @@ WSGI_APPLICATION = 'dekarchive.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dekarchive',
-        'USER': 'deksiteuser',
-        'PASSWORD': 'deksitepwd',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'dekarchive',
+    #     'USER': 'deksiteuser',
+    #     'PASSWORD': 'deksitepwd',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
@@ -116,6 +119,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+    'form_ckeditor': {
+        'toolbar': 'custom',
+        'toolbar_custom': [
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter',
+             'JustifyRight', 'JustifyBlock', ],
+            ['Link', 'Unlink']
+        ],
+        # 'height': 300,
+        'width': '100%',
+    }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -129,6 +150,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATE_INPUT_FORMATS = ['%Y-%m-%d']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -141,8 +163,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

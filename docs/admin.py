@@ -17,7 +17,7 @@ class DocImageInLine(admin.TabularInline):
 
 
 class DocumentAdmin(admin.ModelAdmin):
-    # list_display = ('title', 'summary', 'doc_date', 'updated', 'author', 'category', 'status', 'tag_list',)
+    list_display = ('title', 'summary', 'doc_date', 'updated', 'author', 'category', 'status',)
     fieldsets = (
         ('Header', {
             'fields': (

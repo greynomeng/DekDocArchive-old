@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form>
+    {% csrf_token %}
+    {{ form.media }}
+    <fieldset>
+    <legend>New Document</legend>
+        <!-- Title -->
+        <div class="form-group">
+            <label for="id_title">Title</label>
+            <input type="email" class="form-control" id="id_title" placeholder="Title of document">
+        </div>
+        <!-- Summary -->
+        <div class="form-group">
+            <label for="exampleInputSummary">Summary</label>
+            <input type="email" class="form-control" id="exampleInputSummary" placeholder="Brief description of document.">
+        </div>
+        <!-- Date -->
+        <div class="form-group">
+            <label for="exampleInputDate">Date</label>
+            <input type="email" class="form-control" id="exampleInputDate" placeholder="Date original document was created.">
+        </div>
+        <!-- Author AUTOMATIC = logged in user-->
+        <div class="form-group">
+        <label for="exampleSelect1">Author</label>
+            <select class="form-select" id="exampleSelect1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <!-- Single select -->
+        <div class="form-group">
+        <label for="exampleSelect2">Category</label>
+            <select class="form-select" id="exampleSelect2">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <!-- Dutch Text -->
+        <div class="form-group">
+            <label for="id_dutch_text">Dutch Text</label>
+            <textarea class="form-control" id="id_dutch_text" rows="3"></textarea>
+        </div>
+        <!-- English Translation -->
+        <div class="form-group">
+            <label for="exampleTextarea1">English Translation</label>
+            <textarea class="form-control" id="exampleTextarea1" rows="3"></textarea>
+        </div>
+        <!-- Notes -->
+        <div class="form-group">
+            <label for="exampleTextarea3">Notes</label>
+            <textarea class="form-control" id="exampleTextarea3" rows="3"></textarea>
+        </div>
+        <!-- Select File -->
+        <div class="form-group" style="margin-top: 10px;">
+            <input type="file" name="images" multiple>
+        </div>
+        <!-- Save Button -->
+        </fieldset>
+        <button type="submit" style="margin-top: 10px;" class="btn btn-primary">Save</button>
+    </fieldset>
+</form>
+{% endblock %}}
